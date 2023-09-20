@@ -18,25 +18,24 @@ data sources/sinks are available.
 ## Enough Talking give me the code! Oh wait
 
 As many know, Spark, and therefore Glue, are integrated in many languages. Here we are using python,
-scala is also a good choice given the amout of examples online. A Spark job run the python code to 
+but scala is also a good choice given the amout of examples online. A Spark job runs the python code to 
 process a chunk of data which is distributed using partitions, every job process a partition, the
 input usually is sliced into as many partitions as possible or as configured by the user.
 
-The text above means that the Spark itself is more like an engine that will run the code, thus it
+The text above is meant to explain that the Glue itself is more like an engine that will run the code, thus it
 needs to be configured first in order to get things done. We can achieve somewhat the same results
-by using pure Spark, but since we want to use AWS Glue we need additional configuration. Running glue
-on AWS is easy enough, just a few clicks and you are on the visual editor and can run your code,
+by using pure Spark, but since we want to use AWS Glue we some extra configuration. Running glue
+on AWS is easy enough, just a few clicks and you are on the visual editor and can run your code. However,
 to run locally AWS suggests the material on this [link](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-libraries.html)
 which made almost no sense in my opinion since it "seems" that you need aws access to run your local
 codes.
 
-According the docs, it is possible to run a local ETL Glue Job using either docker or downloading the
-libs and running directly into the terminal, however the Docker download was taking forever, so I decided to download the
-libraries, however the steps here should work when running on docker as well, maybe with minor changes on docker_run
-to include the files to process.
+According to the docs, it is possible to run a local ETL Glue Job using either docker or downloading the
+libs and running directly into the terminal. However the Docker image download was taking forever, so I decided to download the
+libraries.
 
-Finally, to overcome the horrible documentation and the ton of noise from the forums I tried to merge some comments
-from github, stack overflow, chat gpt, etc... The configuration that follows was 
+Finally, to overcome the horrible documentation and the tons of noise on what seems to be "bot responses" online,
+I tried to merge some comments from github, stack overflow, chat gpt, etc. The configuration that follows was 
 an adaptation to what is written on [AWS Glue Repo on github](https://github.com/awslabs/aws-glue-libs) to
 make it work with local files, also I'm using WSL-2.0, on linux the steps that follow should work fine.
 
